@@ -1,0 +1,36 @@
+[MASTER]
+# Files to ignore by linter
+ignore=.coveragerc,
+       .gitignore,
+       .pylintrc,
+       Dockerfile,
+       docker-compose.yml,
+       docker-entrypoint.sh,
+       Pipfile,
+       Pipfile.lock,
+       Procfile,
+       README.md,
+       migrations,
+       LICENSE,
+       coverage.xml,
+       CODE_OF_CONDUCT.md
+
+[MESSAGE CONTROL]
+# C0111: Missing docstring
+# R0903: Too few public methods
+disable=C0111,
+        R0903
+
+[TYPECHECK]
+# objects: For models
+generated-members=objects
+
+[BASIC]
+# Constants name override
+# motivation: urlpatterns
+const-rgx=(([A-Za-z_][A-Za-z0-9_]*)|(__.*__)|)$
+
+[REPORTS]
+# Set the output format. Available formats are text, parseable, colorized, msvs
+# (visual studio) and html
+output-format=colorized

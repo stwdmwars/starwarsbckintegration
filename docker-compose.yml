@@ -1,0 +1,36 @@
+version: "3.1"
+
+services:
+
+  db:
+    image: mongo:4.0.6-xenial
+    hostname: starwarsdemodb
+    command: [ "mongod" , "--auth" ]
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=starwarsdemo
+      - MONGO_INITDB_ROOT_PASSWORD=starwarsdemo
+      - MONGO_INITDB_DATABASE=starwarsdemo
+    ports:
+      - "27017:27017"
+
+  api:
+    build: .
+    entrypoint: /docker-entrypoint.sh
+    environment:
+      - STARWARSDEMO_DB_HOST=starwarsdemodb
+      - STARWARSDEMO_DB_NAME=starwarsdemo
+      - STARWARSDEMO_DB_USER=starwarsdemo
+      - STARWARSDEMO_DB_PASSWORD=starwarsdemo
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    links:
+      - db:starwarsdemodb
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 2m
+      timeout: 10s
+      retries: 3

@@ -1,0 +1,13 @@
+### Django ###
+*.pyc
+__pycache__/
+
+#### Unit test & coverage reports ###
+htmlcov/
+.coverage
+
+### IDE Files ###
+.vscode
+
+### Var files ###
+var/

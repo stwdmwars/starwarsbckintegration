@@ -1,0 +1,2 @@
+release: python manage.py migrate --settings=starwarsdemo.settings.heroku && python manage.py collectstatic --noinput --settings=starwarsdemo.settings.heroku && python runtests.py
+web: gunicorn starwarsdemo.wsgi

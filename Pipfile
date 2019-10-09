@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+djongo = "*"
+requests = "*"
+django-rest-swagger = "*"
+gunicorn = "*"
+whitenoise = "*"
+
+[dev-packages]
+pylint = "*"
+"autopep8" = "*"
+coverage = "*"
+codecov = "*"
+
+[requires]
+python_version = "3.6"
